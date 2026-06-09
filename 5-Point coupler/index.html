@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5-Point Coupler Synthesis Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="app-shell">
+      <header class="toolbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div class="brand-copy">
+            <h1>5-Point Coupler Synthesis Studio</h1>
+            <p>Burmester-inspired graphical construction + nonlinear four-bar refinement</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="recomputeBtn" class="btn primary">Recompute</button>
+          <button id="resetBtn" class="btn">Reset</button>
+          <button id="toggleAnimBtn" class="btn">Pause</button>
+          <button id="toggleConstructionBtn" class="btn">Construction</button>
+          <button id="exportJsonBtn" class="btn">Export JSON</button>
+          <button id="exportPngBtn" class="btn">Export PNG</button>
+          <button id="themeBtn" class="btn ghost" aria-label="Toggle theme">Light</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <canvas id="synthesisCanvas"></canvas>
+
+        <aside class="panel">
+          <section>
+            <h2>Precision Points</h2>
+            <p class="hint">Click to place exactly 5 points (C1..C5). Drag any point to edit and auto-resolve.</p>
+            <ol id="pointList" class="point-list"></ol>
+          </section>
+
+          <section>
+            <h2>Synthesis Output</h2>
+            <dl id="metrics" class="metrics"></dl>
+          </section>
+
+          <section>
+            <h2>Construction Legend</h2>
+            <ul class="legend">
+              <li><span class="swatch swatch-c15"></span><code>c15</code>, <code>c23</code>: reduction mid-normals</li>
+              <li><span class="swatch swatch-hr"></span><code>Hr</code>: relative pole estimate</li>
+              <li><span class="swatch swatch-hc"></span><code>Hc</code>: crank center estimate</li>
+              <li><span class="swatch swatch-trace"></span>Blue trace: coupler curve</li>
+              <li><span class="swatch swatch-error"></span>Error links: target vs synthesized precision pose</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Status</h2>
+            <p id="statusText" class="status">Click the canvas to place 5 precision points.</p>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
