@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-Point Coupler Curve Synthesis</title>
+    <link rel="stylesheet" href="./style4.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro-panel">
+        <p class="eyebrow">Four-Bar Linkage</p>
+        <h1>4-Point Coupler Curve Synthesis</h1>
+        <p class="lede">
+          Click four precision points on the canvas, then run the graphical
+          construction step by step as you share the mechanism rules.
+        </p>
+
+        <div class="hero-strip">
+          <div>
+            <p class="hero-label">Ready To Use</p>
+            <p class="hero-copy">
+              Click 4 points, then click Auto Create and Play.
+            </p>
+          </div>
+          <span id="feasibilityBadge" class="badge badge-neutral">Waiting for 4 points</span>
+        </div>
+
+        <div class="control-card">
+          <div class="button-row">
+            <button id="createButton" class="primary-button">Auto Create</button>
+            <button id="playButton" class="secondary-button">Play</button>
+            <button id="demoButton" class="secondary-button">Load Demo</button>
+            <button id="resetButton" class="secondary-button">Reset</button>
+          </div>
+
+          <label class="field">
+            <span>Pivot selector on c13</span>
+            <input id="pivotSlider" type="range" min="-220" max="220" value="120" />
+          </label>
+
+          <label class="field">
+            <span>Pivot selector on a13</span>
+            <input id="couplerSlider" type="range" min="-220" max="220" value="-120" />
+          </label>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Radius R</span>
+              <input id="radiusR" type="range" min="80" max="520" value="280" />
+            </label>
+
+            <label class="field">
+              <span>Radius r</span>
+              <input id="radiusr" type="range" min="40" max="320" value="180" />
+            </label>
+          </div>
+
+          <label class="toggle">
+            <input id="showGuides" type="checkbox" checked />
+            <span>Show construction guides</span>
+          </label>
+
+          <label class="toggle">
+            <input id="showFinalLinkage" type="checkbox" checked />
+            <span>Show final mechanism overlay</span>
+          </label>
+        </div>
+
+        <div class="status-card">
+          <h2>Precision Points</h2>
+          <div id="pointList" class="point-list"></div>
+        </div>
+
+        <div class="status-card">
+          <h2>Current Construction</h2>
+          <ol id="statusList"></ol>
+        </div>
+
+      </section>
+
+      <section class="canvas-panel">
+        <div class="canvas-frame">
+          <canvas id="synthesisCanvas" width="1240" height="860"></canvas>
+        </div>
+        <p class="hint">
+          Click to place <strong>C1</strong>, <strong>C2</strong>,
+          <strong>C3</strong>, <strong>C4</strong>. Drag any existing point to
+          refine it.
+        </p>
+      </section>
+    </main>
+
+    <script src="./app4.js"></script>
+  </body>
+</html>
