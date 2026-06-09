@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4-Point Coupler Synthesis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel">
+      <h1>4-Point Coupler Synthesis</h1>
+      <p class="lead">
+        Click any 4 target points on the canvas, then press Create Synthesis.
+        The solver uses a Burmester-style 4-position approach (circle-point locus sampling)
+        to build a four-bar mechanism and animate its coupler curve.
+      </p>
+
+      <div class="controls">
+        <button id="createBtn" class="primary">Create Synthesis</button>
+        <button id="resetBtn" class="ghost">Reset Points</button>
+        <button id="clearTraceBtn" class="ghost">Clear Trace</button>
+        <button id="modeBtn" class="ghost mode-toggle" aria-pressed="false">Mode: Engineering</button>
+      </div>
+
+      <div class="meta">
+        <p><strong>Points selected:</strong> <span id="pointCount">0 / 4</span></p>
+        <p><strong>Status:</strong> <span id="status">Select 4 points to begin.</span></p>
+      </div>
+    </section>
+
+    <section class="canvas-wrap">
+      <canvas id="scene"></canvas>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

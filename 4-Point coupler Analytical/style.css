@@ -1,0 +1,146 @@
+:root {
+  --bg: #eef4f1;
+  --panel: #fdfaf4;
+  --ink: #15201e;
+  --soft-ink: #486059;
+  --accent: #d3542b;
+  --accent-2: #1e7666;
+  --line: #99b1aa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #c5dfd3 0%, transparent 38%),
+    radial-gradient(circle at 90% 90%, #f5d4bd 0%, transparent 45%),
+    linear-gradient(140deg, #eff5f1 0%, #e4efe8 44%, #f7f2e8 100%);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 18px;
+  padding: 18px;
+  height: 100vh;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid #d4ddd8;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(21, 32, 30, 0.08);
+}
+
+h1 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.lead {
+  color: var(--soft-ink);
+  margin: 12px 0 18px;
+  line-height: 1.45;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+button {
+  font: inherit;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.ghost {
+  background: #f5f9f7;
+  color: var(--ink);
+  border-color: #d5e1dc;
+}
+
+.mode-toggle {
+  font-weight: 600;
+}
+
+.mode-toggle.active {
+  background: #d9ece7;
+  border-color: #7ca59b;
+  color: #11463d;
+}
+
+.meta {
+  margin-top: 16px;
+  border-top: 1px dashed #d3ddd8;
+  padding-top: 12px;
+  color: var(--soft-ink);
+}
+
+.meta p {
+  margin: 6px 0;
+}
+
+.canvas-wrap {
+  position: relative;
+  border: 1px solid #ccdad3;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(130, 165, 155, 0.12) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(rgba(130, 165, 155, 0.12) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(160deg, #fbfdfc, #edf4ef);
+}
+
+.canvas-wrap.presentation {
+  background:
+    radial-gradient(circle at 20% 25%, rgba(196, 233, 223, 0.45), transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(255, 214, 186, 0.4), transparent 48%),
+    linear-gradient(160deg, #f8fbf7, #e8f1ed);
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .canvas-wrap {
+    min-height: 60vh;
+  }
+}
